@@ -1,18 +1,14 @@
-import { Subscription } from "rxjs/Subscription";
-import { Component, OnInit, OnDestroy, ElementRef, Renderer, AfterViewInit, AfterContentInit, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy, ElementRef, Renderer, Input } from '@angular/core';
 import { Router } from "@angular/router";
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
+import { Subscription } from 'rxjs/Subscription';
 
 declare var $: any;
 
 const store = {
   smartSkin: localStorage.getItem('sm-skin') || 'senac-template',
-  skin: this.skins.find((_skin) => {
-    return _skin.name == (localStorage.getItem('sm-skin') || 'senac-template')
-  }),
-  skins: this.skins,
   fixedHeader: localStorage.getItem('sm-fixed-header') == 'true',
   fixedNavigation: localStorage.getItem('sm-fixed-navigation') == 'true',
   fixedRibbon: localStorage.getItem('sm-fixed-ribbon') == 'true',
@@ -48,29 +44,27 @@ const store = {
     ])
   ]
 })
-export class ShortcutComponent implements OnInit, AfterViewInit, AfterContentInit, OnDestroy {
+export class ShortcutComponent implements OnInit, OnDestroy {
 
   public state: string = 'out';
 
-  private layoutSub: Subscription;
+  private layoutSub: Subscription | undefined;
   private documentSub: any;
 
-  isActivated: boolean;
-  smartSkin: string;
+  isActivated: boolean | undefined;
+  smartSkin: string | undefined;
   store: any;
   private subject: Subject<any>;
 
-  skins: [
-    {
-      name: 'senac-template',
-      logo: 'assets/img/logo_senac_branco.png',
-      skinBtnClass: 'btn btn-block btn-xs txt-color-white margin-right-5',
-      style: {
-        backgroundColor: '#4E463F'
-      },
-      label: 'Senac Template'
-    }
-  ]
+  skins: [{
+    name: 'senac-template';
+    logo: 'assets/img/logo_senac_branco.png';
+    skinBtnClass: 'btn btn-block btn-xs txt-color-white margin-right-5';
+    style: {
+      backgroundColor: '#4E463F';
+    };
+    label: 'Senac Template';
+  }] | undefined;
 
   @Input() botoes: any[] = [];
 
@@ -79,7 +73,7 @@ export class ShortcutComponent implements OnInit, AfterViewInit, AfterContentIni
     this.subject.next(this.store)
   }
 
-  subscribe(next, err?, complete?) {
+  subscribe(next: any, err?: any, complete?: any) {
     return this.subject.subscribe(next, err, complete)
   }
 
@@ -95,7 +89,7 @@ export class ShortcutComponent implements OnInit, AfterViewInit, AfterContentIni
     }).subscribe()
   }
 
-  shortcutTo(route) {
+  shortcutTo(route: any) {
     this.router.navigate(route);
     this.onShortcutToggle(false);
   }
@@ -105,11 +99,11 @@ export class ShortcutComponent implements OnInit, AfterViewInit, AfterContentIni
   }
 
   listen() {
-    this.layoutSub = this.subscribe((store) => {
+    this.layoutSub = this.subscribe((store: { shortcutOpen: any; }) => {
       this.state = store.shortcutOpen ? 'in' : 'out'
 
       if (store.shortcutOpen) {
-        this.documentSub = this.renderer.listenGlobal('document', 'mouseup', (event) => {
+        this.documentSub = this.renderer.listenGlobal('document', 'mouseup', (event: { target: any; }) => {
           if (!this.el.nativeElement.contains(event.target)) {
             this.onShortcutToggle(false);
             this.documentUnsub()
@@ -129,7 +123,8 @@ export class ShortcutComponent implements OnInit, AfterViewInit, AfterContentIni
   }
 
   ngOnDestroy() {
-    this.layoutSub.unsubscribe();
+    if (this.layoutSub)
+      this.layoutSub.unsubscribe();
   }
 
 
@@ -162,9 +157,9 @@ export class ShortcutComponent implements OnInit, AfterViewInit, AfterContentIni
     localStorage.setItem('sm-colorblind-friendly', this.store.colorblindFriendly);
   }
 
-  processBody(state) {
+  processBody(state: any) {
     const $body = $('body');
-    $body.removeClass(state.skins.map((it) => (it.name)).join(' '));
+    $body.removeClass(state.skins.map((it: { name: any; }) => (it.name)).join(' '));
     $body.addClass(state.skin.name);
     $('#logo img').attr('src', state.skin.logo);
 

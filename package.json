@@ -1,10 +1,11 @@
 {
   "name": "shortcut_dc",
-  "version": "1.0.1",
+  "version": "1.0.10",
   "description": "",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build" : "tsc"
   },
   "repository": {
     "type": "git",
@@ -19,9 +20,14 @@
   "homepage": "https://github.com/danecosta/shortcut",
   "dependencies": {
     "@angular/animations": "5.0.5",
-    "@angular/common": "^7.2.12",
+    "@angular/common": "^5.0.5",
+    "@angular/compiler": "^5.2.11",
     "@angular/core": "5.0.5",
     "@angular/router": "5.0.5",
-    "rxjs": "5.5.2"
+    "rxjs": "5.5.2",
+    "zone.js": "^0.8.29"
+  },
+  "devDependencies": {
+    "typescript": "^3.4.3"
   }
 }
