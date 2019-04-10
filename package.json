@@ -1,6 +1,6 @@
 {
-  "name": "shortcut",
-  "version": "1.0.0",
+  "name": "shortcut_dc",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ashleygwilliams/my_package.git"
+    "url": "https://github.com/danecosta/shortcut.git"
   },
   "keywords": [],
   "author": "Daniela Costa",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ashleygwilliams/my_package/issues"
+    "url": "https://github.com/danecosta/shortcut/issues"
   },
-  "homepage": "https://github.com/ashleygwilliams/my_package",
+  "homepage": "https://github.com/danecosta/shortcut",
   "dependencies": {
     "@angular/animations": "5.0.5",
     "@angular/common": "^7.2.12",

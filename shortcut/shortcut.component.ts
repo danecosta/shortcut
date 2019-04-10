@@ -1,5 +1,5 @@
 import { Subscription } from "rxjs/Subscription";
-import { Component, OnInit, OnDestroy, ElementRef, Renderer, AfterViewInit, AfterContentInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, ElementRef, Renderer, AfterViewInit, AfterContentInit, Input } from '@angular/core';
 import { Router } from "@angular/router";
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Subject } from 'rxjs/Subject';
@@ -54,7 +54,6 @@ export class ShortcutComponent implements OnInit, AfterViewInit, AfterContentIni
 
   private layoutSub: Subscription;
   private documentSub: any;
-  public botoes: any[] = [];
 
   isActivated: boolean;
   smartSkin: string;
@@ -72,6 +71,8 @@ export class ShortcutComponent implements OnInit, AfterViewInit, AfterContentIni
       label: 'Senac Template'
     }
   ]
+
+  @Input() botoes: any[] = [];
 
   trigger() {
     this.processBody(this.store);
