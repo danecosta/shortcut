@@ -1,0 +1,27 @@
+{
+  "name": "shortcut",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ashleygwilliams/my_package.git"
+  },
+  "keywords": [],
+  "author": "Daniela Costa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ashleygwilliams/my_package/issues"
+  },
+  "homepage": "https://github.com/ashleygwilliams/my_package",
+  "dependencies": {
+    "@angular/animations": "5.0.5",
+    "@angular/common": "^7.2.12",
+    "@angular/core": "5.0.5",
+    "@angular/router": "5.0.5",
+    "rxjs": "5.5.2"
+  }
+}
