@@ -159,9 +159,9 @@ export class ShortcutComponent implements OnInit, OnDestroy {
 
   processBody(state: any) {
     const $body = $('body');
-    $body.removeClass(state.skins.map((it: { name: any; }) => (it.name)).join(' '));
-    $body.addClass(state.skin.name);
-    $('#logo img').attr('src', state.skin.logo);
+    // $body.removeClass(state.skins.map((it: { name: any; }) => (it.name)).join(' '));
+    // $body.addClass(state.skin.name);
+    // $('#logo img').attr('src', state.skin.logo);
 
     $body.toggleClass('fixed-header', state.fixedHeader);
     $body.toggleClass('fixed-navigation', state.fixedNavigation);
