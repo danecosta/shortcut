@@ -4,94 +4,17 @@
     <li *ngFor="let item of botoes">
       <div class="Columns-item">
         <div class="BorderedBox jarvismetro-tile big-cubes bg-color-blueSenac">
-          <div class="BorderedBox-img" style="background-image: url({item.urlImg});"></div>
+          <div class="BorderedBox-img" style="background-image: url(img/modulos/{{item.moduloId}}.png);"></div>
           <a class="BorderedBox-content" href="#">
-            <p class="BorderedBox-tag">{{item.titulo}}</p>
+            <p class="BorderedBox-tag">{{item.nome}}</p>
           </a>
         </div>
       </div>
     </li>
-
-    <!-- <li>
-      <div class="Columns-item">
-        <div class="BorderedBox jarvismetro-tile big-cubes bg-color-blueSenac">
-          <div class="BorderedBox-img" style="background-image: url(img/modulos/dados.png);"></div>
-          <a class="BorderedBox-content" href="#">
-            <p class="BorderedBox-tag">Dados Estratégicos</p>
-          </a>
-        </div>
-      </div>
-    </li>
-
-    <li>
-      <div class="Columns-item">
-        <div class="BorderedBox jarvismetro-tile big-cubes bg-color-blueSenac">
-          <div class="BorderedBox-img" style="background-image: url(img/modulos/painelMetas.png);"></div>
-          <a class="BorderedBox-content" href="#">
-            <p class="BorderedBox-tag">Painel de Metas</p>
-          </a>
-        </div>
-      </div>
-    </li>
-
-    <li>
-      <div class="Columns-item">
-        <div class="BorderedBox jarvismetro-tile big-cubes bg-color-blueSenac">
-          <div class="BorderedBox-img" style="background-image: url(img/modulos/arrecadacao.png);"></div>
-          <a class="BorderedBox-content" href="#">
-            <p class="BorderedBox-tag">Arrecadação</p>
-          </a>
-        </div>
-      </div>
-    </li>
-
-    <li>
-      <div class="Columns-item">
-        <div class="BorderedBox jarvismetro-tile big-cubes bg-color-blueSenac">
-          <div class="BorderedBox-img" style="background-image: url(img/modulos/Investimentos.png);"></div>
-          <a class="BorderedBox-content" href="#">
-            <p class="BorderedBox-tag">Investimentos</p>
-          </a>
-        </div>
-      </div>
-    </li>
-
-    <li>
-      <div class="Columns-item">
-        <div class="BorderedBox jarvismetro-tile big-cubes bg-color-blueSenac">
-          <div class="BorderedBox-img" style="background-image: url(img/modulos/psg.png);"></div>
-          <a class="BorderedBox-content" href="#">
-            <p class="BorderedBox-tag">PSG</p>
-          </a>
-        </div>
-      </div>
-    </li>
-
-    <li>
-      <div class="Columns-item">
-        <div class="BorderedBox jarvismetro-tile big-cubes bg-color-blueSenac">
-          <div class="BorderedBox-img" style="background-image: url(img/modulos/redeFisica.png);"></div>
-          <a class="BorderedBox-content" href="#">
-            <p class="BorderedBox-tag">Rede Física</p>
-          </a>
-        </div>
-      </div>
-    </li>
-
-    <li>
-      <div class="Columns-item">
-        <div class="BorderedBox jarvismetro-tile big-cubes bg-color-blueSenac">
-          <div class="BorderedBox-img" style="background-image: url(img/modulos/producao.png);"></div>
-          <a class="BorderedBox-content" href="#">
-            <p class="BorderedBox-tag">Produção</p>
-          </a>
-        </div>
-      </div>
-    </li> -->
 
     <li class="pull-right">
-      <a data-action="userLogout" data-logout-msg="" routerlink="/autenticacao/login" title="Sair"
-        class="jarvismetro-tile big-cubes bg-color-orange">
+      <a data-action="userLogout" data-logout-msg="" (click)="logout()" title="Sair"
+        class="jarvismetro-tile big-cubes bg-color-orangeSenac">
         <span class="iconbox">
           <i class="fa fa-sign-out fa-2x"></i> Sair
         </span>

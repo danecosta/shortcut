@@ -12,7 +12,15 @@ export declare class ShortcutComponent implements OnInit, OnDestroy {
     smartSkin: string | undefined;
     store: any;
     private subject;
-    skins: any;
+    skins: [{
+        name: 'senac-template';
+        logo: 'assets/img/logo_senac_branco.png';
+        skinBtnClass: 'btn btn-block btn-xs txt-color-white margin-right-5';
+        style: {
+            backgroundColor: '#4E463F';
+        };
+        label: 'Senac Template';
+    }] | undefined;
     botoes: any[];
     trigger(): void;
     subscribe(next: any, err?: any, complete?: any): Subscription;
