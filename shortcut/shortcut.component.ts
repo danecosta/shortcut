@@ -67,6 +67,7 @@ export class ShortcutComponent implements OnInit, OnDestroy {
   }] | undefined;
 
   @Input() botoes: any[] = [];
+  @Input() logout: (() => void) | undefined;
 
   trigger() {
     this.processBody(this.store);
